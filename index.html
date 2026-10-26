@@ -8,7 +8,7 @@
   <meta property="og:title" content="Chicken Archer — официальный сайт">
   <meta property="og:description" content="Прицелься. Выстрели. Победи. Узнай о последней версии Chicken Archer и найди все ссылки проекта в одном месте.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="trailer_poster.jpg">
+  <meta property="og:image" content="assets/trailer_poster.jpg">
   <meta name="color-scheme" content="dark light">
   <title>Chicken Archer — официальный сайт</title>
   <style>
@@ -285,7 +285,20 @@
     }
     @media (prefers-reduced-motion:reduce) { .ambient-particle { display:none; } .loading-mark { animation:none; } }
 
-  </style>
+  
+    .history-note { margin:18px 2px 0; color:var(--muted); font-size:.82rem; line-height:1.65; }
+    .behind-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:15px; }
+    .behind-card { padding:20px 22px; overflow:hidden; transition:border-color .2s ease, transform .2s ease; }
+    .behind-card:hover { border-color:rgba(255,207,104,.32); }
+    .behind-card[open] { border-color:rgba(255,207,104,.36); }
+    .behind-card summary { align-items:center; justify-content:flex-start; gap:12px; line-height:1.5; }
+    .behind-card summary::after { margin-left:auto; }
+    .behind-number { display:grid; place-items:center; flex:0 0 36px; width:36px; height:36px; border:1px solid var(--line); border-radius:12px; color:var(--gold); background:rgba(255,207,104,.07); font-size:.75rem; font-weight:950; }
+    .behind-copy { padding-left:48px; }
+    .behind-copy p { margin:12px 0 0; color:var(--muted); font-size:.91rem; line-height:1.8; }
+    .mascot-bubble.rare { border-color:rgba(255,207,104,.72); box-shadow:0 14px 40px rgba(0,0,0,.32),0 0 24px rgba(255,207,104,.13); }
+    @media (max-width: 680px) { .behind-grid { grid-template-columns:1fr; } .behind-card { padding:18px; } .behind-copy { padding-left:0; } }
+</style>
 </head>
 <body data-theme="dark">
   <div class="ambient-bg" id="ambientBg" aria-hidden="true"></div>
@@ -317,6 +330,7 @@
         <a href="#trailer">Трейлер</a>
         <a href="#version">Версия 3.0</a>
         <a href="#history">История</a>
+        <a href="#behind-scenes">За кулисами</a>
         <a href="#socials">Соцсети</a>
         <a href="#support">Поддержка</a>
         <a class="nav-cta" href="https://zxc-developer.itch.io/chicken-archerr" target="_blank" rel="noopener noreferrer">Играть ↗</a>
@@ -388,9 +402,9 @@
         </div>
         <div class="panel trailer-shell">
           <div class="trailer-frame">
-            <video id="siteTrailer" controls playsinline preload="metadata" poster="trailer_poster.jpg" muted>
-              <source src="chicken_archer_trailer.mp4" type="video/mp4">
-              Ваш браузер не поддерживает видео. <a href="chicken_archer_trailer.mp4">Открыть трейлер</a>.
+            <video id="siteTrailer" controls playsinline preload="metadata" poster="assets/trailer_poster.jpg" muted>
+              <source src="assets/chicken_archer_trailer.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео. <a href="assets/chicken_archer_trailer.mp4">Открыть трейлер</a>.
             </video>
           </div>
           <div class="trailer-controls"><span class="trailer-note">Chicken Archer · Официальный трейлер</span><button class="button button-secondary sound-toggle" id="soundToggle" type="button">🔇 Включить звук</button></div>
@@ -426,20 +440,71 @@
 
     <section id="history">
       <div class="container">
-        <div class="section-head"><div><span class="kicker">Путь проекта</span><h2>История обновлений</h2><p class="section-sub">Что появлялось в Chicken Archer: от ранних улучшений до версии 3.0.</p></div></div>
+        <div class="section-head"><div><span class="kicker">Путь проекта</span><h2>История обновлений</h2><p class="section-sub">От самой первой версии 2.1 до Chicken Archer 3.0 — версии в хронологическом порядке.</p></div></div>
         <div class="history-grid">
-          <article class="panel version-card current">
-            <div class="version-badges"><span class="version-badge">АКТУАЛЬНО</span><span class="version-badge">НОВОЕ</span></div>
-            <h3>Chicken Archer 3.0</h3>
-            <p>Большой шаг в оформлении и персонализации игры.</p>
-            <ul class="version-items"><li>Обновлённый интерфейс и HUD.</li><li>Профиль игрока с локальным сохранением.</li><li>Сезонный пропуск: бесплатная и премиальная ветки, 30 уровней.</li><li>Новые визуальные эффекты, награды и улучшенные экраны результата.</li><li>Выбор звукового оформления и локализация RU/EN.</li></ul>
+          <article class="panel version-card">
+            <div class="version-badges"><span class="version-badge old">ПЕРВЫЙ ВЫПУСК</span></div>
+            <h3>Chicken Archer 2.1</h3>
+            <p>Самая первая версия Chicken Archer. С неё начинается история проекта и формируется основа для следующих выпусков.</p>
+            <ul class="version-items"><li>Первый этап существования игры.</li><li>Базовая игровая основа, на которой строились последующие версии.</li></ul>
           </article>
           <article class="panel version-card">
-            <div class="version-badges"><span class="version-badge old">ПРЕДЫДУЩАЯ</span><span class="version-badge">УЛУЧШЕНО</span></div>
-            <h3>Chicken Archer 2.5</h3>
-            <p>Обновление, которое усилило игровые ощущения и добавило больше целей.</p>
-            <ul class="version-items"><li>Следы и эффекты стрел.</li><li>Достижения и секретные находки.</li><li>Временное замедление полёта стрелы.</li><li>Автопауза при сворачивании игры.</li><li>Экраны победы и поражения с итогами матча.</li></ul>
+            <div class="version-badges"><span class="version-badge old">РАННИЙ ВЫПУСК</span></div>
+            <h3>Chicken Archer 2.2</h3>
+            <p>Следующий этап развития после 2.1 — продолжение работы над существующим игровым процессом.</p>
+            <ul class="version-items"><li>Развитие ранней основы проекта.</li><li>Переход к дальнейшему расширению игровых механик и содержания.</li></ul>
           </article>
+          <article class="panel version-card">
+            <div class="version-badges"><span class="version-badge old">РАСШИРЕНИЕ МЕХАНИК</span></div>
+            <h3>Chicken Archer 2.3</h3>
+            <p>Этап, ориентированный на расширение игрового процесса и доработку основных систем.</p>
+            <ul class="version-items"><li>Новые игровые фазы, противники и босс.</li><li>Улучшения стрельбы, влияния ветра, магазина и мобильного интерфейса.</li></ul>
+          </article>
+          <article class="panel version-card">
+            <div class="version-badges"><span class="version-badge old">УЛУЧШЕНИЯ И КОНТЕНТ</span></div>
+            <h3>Chicken Archer 2.5</h3>
+            <p>Обновление, которое добавило больше визуальной отдачи, целей и удобства во время игры.</p>
+            <ul class="version-items"><li>Следы стрел: огонь, молния, перья, монеты и неон.</li><li>Достижения и секретные находки.</li><li>Замедление полёта стрелы и автопауза при сворачивании игры.</li><li>Обновлённые экраны победы и поражения.</li><li>Локализация RU/EN и звуковые наборы.</li></ul>
+          </article>
+          <article class="panel version-card current">
+            <div class="version-badges"><span class="version-badge">АКТУАЛЬНАЯ ВЕРСИЯ</span></div>
+            <h3>Chicken Archer 3.0</h3>
+            <p>Крупный шаг в оформлении и персонализации игры.</p>
+            <ul class="version-items"><li>Обновлённые меню и игровой интерфейс.</li><li>Профиль игрока с локальным сохранением.</li><li>Сезонный пропуск с бесплатной и премиальной ветками.</li><li>Дополнительные визуальные эффекты и улучшенные экраны результата.</li><li>Настройки звукового оформления и RU/EN.</li></ul>
+          </article>
+        </div>
+        <p class="history-note">Точные даты выпуска и отдельные файлы старых версий добавим, когда они будут подтверждены и доступны для скачивания.</p>
+      </div>
+    </section>
+
+    <section id="behind-scenes">
+      <div class="container">
+        <div class="section-head"><div><span class="kicker">За кадром</span><h2>За кулисами Chicken Archer</h2><p class="section-sub">Немного о том, как создаётся проект, какие решения принимались и куда он движется.</p></div></div>
+        <div class="behind-grid">
+          <details class="panel behind-card">
+            <summary><span class="behind-number">01</span><span>С чего всё началось</span></summary>
+            <div class="behind-copy"><p>Chicken Archer выросла из идеи аркадной игры, в которой важны меткость, стрельба из лука и постепенно усложняющиеся испытания. По мере развития к первоначальной основе добавлялись новые направления и способы сделать игру интереснее.</p></div>
+          </details>
+          <details class="panel behind-card">
+            <summary><span class="behind-number">02</span><span>Как проект менялся от 2.2 до 3.0</span></summary>
+            <div class="behind-copy"><p>Ранние версии развивали основу игрового процесса. В последующих обновлениях больше внимания уделялось противникам, стрельбе, эффектам и достижениям. В 3.0 основной акцент сместился на крупное обновление интерфейса и персонализации, включая профиль и сезонный пропуск.</p></div>
+          </details>
+          <details class="panel behind-card">
+            <summary><span class="behind-number">03</span><span>Какие трудности возникают</span></summary>
+            <div class="behind-copy"><p>Новые функции должны работать вместе с уже существующими. Особенно важно, чтобы интерфейс не перекрывал игровое поле на телефонах, прицеливание оставалось удобным, сохранения не терялись, а эффекты не перегружали игру. Поэтому приходится проверять решения на практике и учитывать небольшие экраны.</p></div>
+          </details>
+          <details class="panel behind-card">
+            <summary><span class="behind-number">04</span><span>Что приходилось переделывать</span></summary>
+            <div class="behind-copy"><p>В процессе разработки особое внимание уделялось расположению элементов интерфейса, отображению имён при попадании, описаниям предметов магазина и работе стрельбы. Такие детали могут казаться небольшими, но именно они влияют на то, насколько понятно и приятно играть.</p></div>
+          </details>
+          <details class="panel behind-card">
+            <summary><span class="behind-number">05</span><span>Что ждёт Chicken Archer дальше</span></summary>
+            <div class="behind-copy"><p>После выхода 3.0 в планах на версию 3.5 — система промокодов и серверные функции. Другие идеи будут появляться постепенно: важнее выпускать продуманные обновления, чем добавлять много возможностей одновременно. Эти пункты относятся к планам, а не к уже выпущенным функциям.</p></div>
+          </details>
+          <details class="panel behind-card">
+            <summary><span class="behind-number">06</span><span>Небольшие факты о разработке</span></summary>
+            <div class="behind-copy"><p>Содержание обновлений планируется поэтапно: например, эффекты стрел, достижения и замедление времени были отнесены к 2.5, а промокоды — к будущей версии 3.5. Это помогает распределять идеи по выпускам и не смешивать все изменения в одном обновлении.</p></div>
+          </details>
         </div>
       </div>
     </section>
@@ -519,7 +584,7 @@
           <svg class="footer-logo" viewBox="0 0 100 100" aria-hidden="true"><rect x="3" y="3" width="94" height="94" rx="29" fill="#ffb856"/><path d="M24 58c-1-17 10-28 25-28 5 0 10 2 14 5l8-6 1 13c7 9 4 24-7 30-9 6-26 5-35-2-4-3-6-7-6-12z" fill="#fff5df" stroke="#4c261c" stroke-width="4"/><path d="M42 31c-5-9 1-14 7-10 5-11 15-5 12 3 8-1 10 7 4 12" fill="#ed5a44" stroke="#4c261c" stroke-width="3"/><circle cx="60" cy="47" r="4" fill="#3a201a"/><path d="M71 52l16 6-15 6z" fill="#ffb547" stroke="#4c261c" stroke-width="3"/></svg>
           <span>CHICKEN ARCHER</span>
         </a>
-        <div class="footer-links"><a href="#about">Об игре</a><a href="#trailer">Трейлер</a><a href="#version">Версия 3.0</a><a href="#history">История</a><a href="#socials">Соцсети</a><a href="https://zxc-developer.itch.io/chicken-archerr" target="_blank" rel="noopener noreferrer">itch.io ↗</a></div>
+        <div class="footer-links"><a href="#about">Об игре</a><a href="#trailer">Трейлер</a><a href="#version">Версия 3.0</a><a href="#history">История</a><a href="#behind-scenes">За кулисами</a><a href="#socials">Соцсети</a><a href="https://zxc-developer.itch.io/chicken-archerr" target="_blank" rel="noopener noreferrer">itch.io ↗</a></div>
       </div>
       <div class="footnote">© <span id="year">2026</span> Chicken Archer. Независимый игровой проект. Все ссылки на соцсети и поддержку управляются разработчиком.</div>
     </div>
@@ -618,7 +683,7 @@
       showToast(trailer.muted ? 'Звук трейлера выключен' : 'Звук трейлера включён');
     });
     trailer.addEventListener('volumechange', syncSoundButton);
-    trailer.addEventListener('error', () => showToast('Не удалось загрузить трейлер. Проверьте, что файл chicken_archer_trailer.mp4 загружен вместе с сайтом.'));
+    trailer.addEventListener('error', () => showToast('Не удалось загрузить трейлер. Проверьте, что файл assets/chicken_archer_trailer.mp4 загружен вместе с сайтом.'));
 
     // Random tips, project facts and easter-egg-like notes.
     const tips = [
@@ -646,26 +711,70 @@
     const mascotLines = [
       { face:'😎', text:'Эй, лучник! Загляни в трейлер — там вся атмосфера игры.' },
       { face:'💛', text:'Спасибо, что поддерживаешь Chicken Archer!' },
-      { face:'🤔', text:'Как думаешь, какого босса стоило бы добавить следующим?' },
-      { face:'📣', text:'Проверь Telegram — новости и обновления появляются там.' },
+      { face:'🤔', text:'У каждой версии своя история. Загляни в раздел обновлений!' },
+      { face:'📣', text:'Проверь Telegram — новости проекта появляются там.' },
       { face:'🛠️', text:'Иногда лучший апгрейд — это исправить пару досадных багов.' },
       { face:'🌙', text:'Попробуй сменить тему сайта — выбор сохранится на этом устройстве.' },
-      { face:'🎯', text:'Точное попадание — маленькая победа. Большая победа впереди!' }
+      { face:'🎯', text:'Точное попадание — маленькая победа. Большая победа впереди!' },
+      { face:'🐣', text:'Ко-ко! Я слежу, чтобы на сайте было не скучно.' },
+      { face:'🧠', text:'Хорошая идея — это начало. Потом её ещё нужно аккуратно реализовать.' },
+      { face:'😅', text:'Разработка — это когда одна маленькая правка тянет за собой ещё три.' },
+      { face:'🪶', text:'Перышко за старание! Спасибо, что заглянул.' },
+      { face:'📚', text:'Хочешь узнать, как менялся проект? История обновлений ждёт тебя.' },
+      { face:'🎬', text:'Погляди трейлер — в нём Chicken Archer показывает себя во всей красе.' },
+      { face:'🌟', text:'Каждое обновление — ещё один шаг для проекта.' },
+      { face:'🧐', text:'Ты внимательно изучаешь сайт. Уважаю такой подход!' },
+      { face:'😴', text:'Даже лучнику иногда нужен перерыв. Не забывай отдыхать!' },
+      { face:'🧭', text:'Ищи интересное, а я пока посторожу сайт.' },
+      { face:'🎉', text:'Ко-ко-класс! Рад, что ты здесь.' }
+    ];
+    const rareMascotLines = [
+      { face:'👑', text:'Редкая реакция! Ты только что увидел мою королевскую куриную сторону.' },
+      { face:'🕵️', text:'Так-так… Кажется, ты раскрыл один из моих редких характеров.' },
+      { face:'🚀', text:'Крылья расправлены, перья сияют — маскот готов к новым приключениям!' },
+      { face:'🥚', text:'Секретная куриная мудрость: не каждое яйцо становится омлетом. Вот и все дела.' }
     ];
     let lastMascotLine = -1;
-    mascotButton.addEventListener('click', () => {
-      let next = Math.floor(Math.random() * mascotLines.length);
-      if (mascotLines.length > 1) while (next === lastMascotLine) next = Math.floor(Math.random() * mascotLines.length);
-      lastMascotLine = next;
-      mascotButton.textContent = mascotLines[next].face;
-      mascotBubble.textContent = mascotLines[next].text;
+    let lastRareMascotLine = -1;
+
+    const triggerMascotReaction = (line, isRare = false, showNotice = true) => {
+      if (!mascotButton || !mascotBubble || !line) return;
+      mascotButton.textContent = line.face;
+      mascotBubble.textContent = line.text;
       mascotBubble.classList.add('show');
+      mascotBubble.classList.toggle('rare', isRare);
       mascotButton.classList.remove('bounce');
       void mascotButton.offsetWidth;
       mascotButton.classList.add('bounce');
-      showToast('Маскот Chicken Archer реагирует!');
+      if (showNotice) showToast(isRare ? 'Редкая реакция маскота!' : 'Маскот Chicken Archer реагирует!');
       window.clearTimeout(mascotButton._hideBubbleTimer);
-      mascotButton._hideBubbleTimer = window.setTimeout(() => mascotBubble.classList.remove('show'), 5500);
+      mascotButton._hideBubbleTimer = window.setTimeout(() => {
+        mascotBubble.classList.remove('show', 'rare');
+      }, isRare ? 6500 : 5500);
+    };
+
+    mascotButton.addEventListener('click', () => {
+      // A rare reaction appears occasionally; ordinary reactions remain the common result.
+      if (Math.random() < 0.09) {
+        let nextRare = Math.floor(Math.random() * rareMascotLines.length);
+        if (rareMascotLines.length > 1) while (nextRare === lastRareMascotLine) nextRare = Math.floor(Math.random() * rareMascotLines.length);
+        lastRareMascotLine = nextRare;
+        triggerMascotReaction(rareMascotLines[nextRare], true, true);
+        return;
+      }
+      let next = Math.floor(Math.random() * mascotLines.length);
+      if (mascotLines.length > 1) while (next === lastMascotLine) next = Math.floor(Math.random() * mascotLines.length);
+      lastMascotLine = next;
+      triggerMascotReaction(mascotLines[next], false, true);
+    });
+
+    // On rare occasions the mascot comments when a visitor opens a backstage story.
+    document.querySelectorAll('.behind-card').forEach((card) => {
+      card.addEventListener('toggle', () => {
+        if (card.open && Math.random() < 0.22) {
+          triggerMascotReaction({face:'📖', text:'О, ты заглянул за кулисы! Там как раз собраны истории разработки.'}, false, false);
+        }
+      });
     });
 
     // Local toast notifications and copy actions; no server or external service is used.

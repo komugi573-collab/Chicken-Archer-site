@@ -8,7 +8,7 @@
   <meta property="og:title" content="Chicken Archer — официальный сайт">
   <meta property="og:description" content="Прицелься. Выстрели. Победи. Узнай о последней версии Chicken Archer и найди все ссылки проекта в одном месте.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/trailer_poster.jpg">
+  <meta property="og:image" content="trailer_poster.jpg">
   <meta name="color-scheme" content="dark light">
   <title>Chicken Archer — официальный сайт</title>
   <style>
@@ -404,7 +404,7 @@
           <div class="trailer-frame">
             <video id="siteTrailer" controls playsinline preload="metadata" poster="trailer_poster.jpg" muted>
               <source src="chicken_archer_trailer.mp4" type="video/mp4">
-              Ваш браузер не поддерживает видео. <a href="assets/chicken_archer_trailer.mp4">Открыть трейлер</a>.
+              Ваш браузер не поддерживает видео. <a href="chicken_archer_trailer.mp4">Открыть трейлер</a>.
             </video>
           </div>
           <div class="trailer-controls"><span class="trailer-note">Chicken Archer · Официальный трейлер</span><button class="button button-secondary sound-toggle" id="soundToggle" type="button">🔇 Включить звук</button></div>
@@ -683,7 +683,21 @@
       showToast(trailer.muted ? 'Звук трейлера выключен' : 'Звук трейлера включён');
     });
     trailer.addEventListener('volumechange', syncSoundButton);
-    trailer.addEventListener('error', () => showToast('Не удалось загрузить трейлер. Проверьте, что файл assets/chicken_archer_trailer.mp4 загружен вместе с сайтом.'));
+    // Compatibility fallback: try the other common location if the first video path is missing.
+    const trailerSource = trailer.querySelector('source');
+    let trailerPathFallbackUsed = false;
+    trailer.addEventListener('error', () => {
+      if (!trailerPathFallbackUsed && trailerSource) {
+        trailerPathFallbackUsed = true;
+        const currentSource = trailerSource.getAttribute('src') || '';
+        trailerSource.src = currentSource.startsWith('assets/')
+          ? 'chicken_archer_trailer.mp4'
+          : 'assets/chicken_archer_trailer.mp4';
+        trailer.load();
+        return;
+      }
+      showToast('Не удалось загрузить трейлер. Проверьте, что chicken_archer_trailer.mp4 загружен рядом с index.html или в assets/.');
+    });
 
     // Random tips, project facts and easter-egg-like notes.
     const tips = [
